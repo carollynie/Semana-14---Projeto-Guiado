@@ -1,5 +1,5 @@
 {
-  "name": "S14-CrudBD",
+  "name": "s14-crud-bd",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,7 +8,7 @@
     "start": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "ana carolina",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
