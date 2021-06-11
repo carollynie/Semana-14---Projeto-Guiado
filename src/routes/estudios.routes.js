@@ -6,6 +6,10 @@ router.post("/", estudioController.criarEstudio)
 
 router.get("/", estudioController.mostraEstudio)
 
+router.patch("/:id", estudioController.atualizaEstudio)
+
+router.delete("/:id", estudioController.deletaEstudio)
+
 module.exports = router
 
 

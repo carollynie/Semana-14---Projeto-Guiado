@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const estudio = require("../models/estudio")
 const estudioModel = require("../models/estudio")
 
 const criarEstudio = async (request, response) => {
@@ -32,10 +33,43 @@ const mostraEstudio = async (request, response) => {
     }
 }
 
+const atualizaEstudio = async (request, response) => {
+    const encontraEstudio = await estudioModel.findById(request.params.id)
+    if (encontraEstudio == null) {
+        return response.status(404).json({ message: "estudio nao encontrado" })
+    }
+    if (request.body.nome != null) {
+        encontraEstudio.nome = request.body.nome
+    }
+    try {
+        const estudioAtualizado = await encontraEstudio.save()
+        response.status(200).json(estudioAtualizado)
+    }
+    catch (err) {
+        response.status(500).json({ message: err.message })
+    }
+}
+
+const deletaEstudio = async (request, response) => {
+    const encontraEstudio = await estudioModel.findById(request.params.id)
+    if (encontraEstudio == null) {
+        return response.status(404).json({ message: "estudio não encontrado" })
+    }
+    try {
+        await encontraEstudio.remove()
+        response.status(200).json({ message: "foi deletado com sucesso" })
+    }
+    catch (err) {
+        response.status(500).json({ message: err.message })
+    }
+
+}
 
 
 
 module.exports = {
     criarEstudio,
-    mostraEstudio
+    mostraEstudio,
+    atualizaEstudio,
+    deletaEstudio
 }
