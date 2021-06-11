@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const titulo = require("../models/titulo")
 const tituloModel = require("../models/titulo")
 
 const criaTitulo = async (request, response) => {

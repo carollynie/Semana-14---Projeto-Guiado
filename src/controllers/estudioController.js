@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const estudio = require("../models/estudio")
 const estudioModel = require("../models/estudio")
 
 const criarEstudio = async (request, response) => {
